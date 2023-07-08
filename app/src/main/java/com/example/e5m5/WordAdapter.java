@@ -27,7 +27,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull WordAdapter.ViewHolder holder, int position) {
         String rat = ratNames.get(position);
-        holder.binding(rat);
+        holder.showData(rat);
 
     }
 
@@ -37,13 +37,14 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ItemBinding binding;
+        private ItemBinding itemBinding;
         public ViewHolder(ItemBinding binding) {
             super(binding.getRoot());
+            itemBinding = binding;
         }
 
-        public void binding(String rat) {
-            binding.ratasTxt.setText(rat);
+        public void showData(String rat) {
+            itemBinding.ratasTxt.setText(rat);
         }
     }
 }
